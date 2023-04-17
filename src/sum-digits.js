@@ -13,13 +13,19 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 function getSumOfDigits(n) {
-  var figures = "" + n;
-  var sum = 0;
+  let sum = 0;
+  arr = ("" + n).split('');
 
-  for (var i = 0; i < figures.length; i++) 
-    sum += +figures[i]
+  for(let i = 0; i < arr.length; i++){
+    sum += +arr[i];
+  }
 
-  return sum;
+  if (sum < 10){
+    return sum;
+  }else{
+    return getSumOfDigits(sum);
+  }
+
 }
 
 
